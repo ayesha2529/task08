@@ -2,8 +2,8 @@
 const express = require('express');
 const app = express();
 const PORT = 3000;
-const ecommerceRoutes = require('./ecommerce');
-const passwordStrengthRoutes = require('./PasswordStrengthChecker');
+const ecommerce = require('./ecommerce');
+const passwordStrength = require('./PasswordStrengthChecker');
 
 // Middleware for logging
 const loggerMiddleware = (req, res, next) => {
@@ -17,8 +17,8 @@ app.use(express.json());
 app.use(loggerMiddleware);
 
 // Mount routes
-app.use('/ecommerce', ecommerceRoutes);
-app.use('/password-strength', passwordStrengthRoutes);
+app.use('/ecommerce', ecommerce);
+app.use('/password-strength', passwordStrength);
 
 // Starting the server
 app.listen(PORT, () => {
